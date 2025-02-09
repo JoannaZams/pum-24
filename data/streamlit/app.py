@@ -1,12 +1,16 @@
 import streamlit as st
 import pandas as pd
-import random   # not necessary to import, but we will use it to generate a random number
+import random # not necessary to import, but we will use it to generate a random number
+import pickle as pkl 
 
 st.title('☆Rat Fan Club☆')  # Set the title of the app
 
 st.write('### The cheese formula:')  # display some text
 st.latex(r'\left( i\gamma^\mu\partial_\mu - m \right) \psi = 0')    # display a LaTeX formula
 st.write('Just kidding, that is the **Dirac equation**. To be honest, I do not understand it at all.')
+
+with open('data/svr.pkl', 'rb') as f:
+    svr = pickle.load(f)
 
 # display an image
 st.image('data/streamlit/rat.jpeg', caption='This is the rat in question', width=300)
